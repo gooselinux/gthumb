@@ -1,0 +1,12 @@
+diff -up gthumb-2.10.11/doc/gthumb.omf.in.doc-category gthumb-2.10.11/doc/gthumb.omf.in
+--- gthumb-2.10.11/doc/gthumb.omf.in.doc-category	2010-05-03 17:46:15.238932767 -0400
++++ gthumb-2.10.11/doc/gthumb.omf.in	2010-05-03 17:46:47.212932625 -0400
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" standalone="no"?>
+ <omf>
+   <resource>
+-    <subject category="GNOME|Applications|Graphics"/>
++    <subject category="GNOME|Graphics"/>
+     <type>
+       user's guide
+     </type>

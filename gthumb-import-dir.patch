@@ -1,0 +1,17 @@
+--- gthumb-2.10.11/src/dlg-photo-importer.c	2009-02-24 05:18:11.000000000 -0500
++++ hacked/src/dlg-photo-importer.c	2009-03-27 23:32:03.820303933 -0400
+@@ -2051,8 +2051,12 @@
+ 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (data->reset_exif_tag_on_import_checkbutton), eel_gconf_get_boolean (PREF_PHOTO_IMPORT_RESET_EXIF_ORIENTATION, TRUE));
+ 
+ 	default_path = eel_gconf_get_path (PREF_PHOTO_IMPORT_DESTINATION, NULL);
+-	if ((default_path == NULL) || (*default_path == 0))
+-		default_path = xdg_user_dir_lookup ("PICTURES");
++	if ((default_path == NULL) || (*default_path == 0)) {
++		char *pictures_dir;
++		pictures_dir = xdg_user_dir_lookup ("PICTURES");
++		default_path = g_strconcat ("file://", pictures_dir, NULL);
++		free (pictures_dir);
++	}
+ 	
+ 	gtk_file_chooser_set_current_folder_uri (GTK_FILE_CHOOSER (data->destination_filechooserbutton),
+ 					         default_path);

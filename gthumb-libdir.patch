@@ -1,0 +1,11 @@
+--- gthumb-2.9.2/libgthumb/Makefile.am.libgthumb	2007-02-21 21:38:09.000000000 -0500
++++ gthumb-2.9.2/libgthumb/Makefile.am	2007-02-21 21:38:49.000000000 -0500
+@@ -17,7 +17,7 @@
+ 	$(LIBOPENRAW_CFLAGS)                                    \
+ 	$(DISABLE_DEPRECATED)
+ 
+-libgthumbdir = $(libdir)
++libgthumbdir = $(libdir)/gthumb
+ libgthumb_LTLIBRARIES = libgthumb.la
+ libgthumb_la_LDFLAGS = -avoid-version -no-undefined
+ 

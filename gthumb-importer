@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Nautilus passes a POSIX path; resolve to URI
+#
+URI=`gvfs-ls -c "$1/"`
+
+if [ "${URI:0:10}" = "gphoto2://" ] ; then
+    # Yield for gthumb since it wants to access the device directly
+    #
+    gvfs-mount --unmount-scheme gphoto2
+fi
+
+# Launch gthumb in --import-photos mode - note that this also works
+# for mass storage devices too thanks to the disk:// driver in
+# libgphoto2.
+#
+gthumb --import-photos
